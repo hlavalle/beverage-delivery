@@ -1,7 +1,7 @@
 package com.hlavalle.abichallenge.controller;
 
 import com.hlavalle.abichallenge.model.Vehicle;
-import com.hlavalle.abichallenge.repository.VehicleRepository;
+import com.hlavalle.abichallenge.service.VehicleServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,10 +15,10 @@ import javax.validation.Valid;
 public class VehicleController {
 
     @Autowired
-    VehicleRepository vehicleRepository;
+    VehicleServiceImpl vehicleService;
 
     @PostMapping()
     public Vehicle registerVehicle(@Valid @RequestBody Vehicle vehicle) {
-        return vehicleRepository.save(vehicle);
+        return vehicleService.registerVehicle(vehicle);
     }
 }

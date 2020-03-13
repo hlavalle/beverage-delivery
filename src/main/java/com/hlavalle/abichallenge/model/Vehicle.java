@@ -4,18 +4,17 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
+@Table(name = "vehicle")
 @NoArgsConstructor
 public class Vehicle implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Getter
     private Long id;
 
     @Getter @Setter
@@ -26,5 +25,8 @@ public class Vehicle implements Serializable {
 
     @Getter @Setter
     private String type;
+
+    @Getter @Setter
+    private int capacity;
 
 }

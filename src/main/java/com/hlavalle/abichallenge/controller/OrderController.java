@@ -1,9 +1,8 @@
 package com.hlavalle.abichallenge.controller;
 
+import com.hlavalle.abichallenge.dto.RankingDto;
 import com.hlavalle.abichallenge.model.DeliveryOrder;
-import com.hlavalle.abichallenge.model.Vehicle;
-import com.hlavalle.abichallenge.repository.DeliveryOrderRepository;
-import com.hlavalle.abichallenge.repository.VehicleRepository;
+import com.hlavalle.abichallenge.service.OrderServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,24 +14,15 @@ import java.util.List;
 public class OrderController {
 
     @Autowired
-    DeliveryOrderRepository deliveryOrderRepository;
-
-    @Autowired
-    VehicleRepository vehicleRepository;
+    OrderServiceImpl orderService;
 
     @PostMapping()
     public DeliveryOrder registerDeliveryOrder(@Valid @RequestBody DeliveryOrder deliveryOrder) {
-        return deliveryOrderRepository.save(deliveryOrder);
+        return orderService.registerDeliveryOrder(deliveryOrder);
     }
 
     @GetMapping(path = "{orderId}/vehicle/ranking")
-    public List<Vehicle> getRanking(@PathVariable Long orderId) {
-
-        System.out.println("order id = "+orderId);
-
-        List<Vehicle> vehicles = vehicleRepository.findAll();
-
-        return vehicles;
-
+    public List<RankingDto> getRanking(@PathVariable Long orderId) {
+        return orderService.getOrderRanking(orderId);
     }
 }
