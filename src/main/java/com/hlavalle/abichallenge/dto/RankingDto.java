@@ -1,9 +1,11 @@
 package com.hlavalle.abichallenge.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
+@AllArgsConstructor
+@NoArgsConstructor
+@EqualsAndHashCode
 public class RankingDto {
 
     @Getter @Setter

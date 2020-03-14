@@ -42,12 +42,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
-			<exclusions>
-				<exclusion>
-					<groupId>org.junit.vintage</groupId>
-					<artifactId>junit-vintage-engine</artifactId>
-				</exclusion>
-			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.projectlombok</groupId>
@@ -96,6 +90,12 @@
 							<goal>check</goal>
 						</goals>
 						<configuration>
+							<excludes>
+								<exclude>com/hlavalle/abichallenge/exception/*.class</exclude>
+								<exclude>com/hlavalle/abichallenge/config/*.class</exclude>
+								<exclude>com/hlavalle/abichallenge/controller/*.class</exclude>
+								<exclude>com/hlavalle/abichallenge/AbichallengeApplication.class</exclude>
+							</excludes>
 							<rules>
 								<rule>
 									<element>PACKAGE</element>
@@ -103,7 +103,7 @@
 										<limit>
 											<counter>LINE</counter>
 											<value>COVEREDRATIO</value>
-											<minimum>0.00</minimum>
+											<minimum>0.85</minimum>
 										</limit>
 									</limits>
 								</rule>

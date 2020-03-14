@@ -11,8 +11,11 @@ import java.util.Map;
 @Service
 public class VehicleServiceImpl implements VehicleService {
 
-    @Autowired
-    VehicleRepository vehicleRepository;
+    private VehicleRepository vehicleRepository;
+
+    public VehicleServiceImpl(VehicleRepository vehicleRepository) {
+        this.vehicleRepository = vehicleRepository;
+    }
 
     private final Map<String, Integer> vehicleCapacity  = new HashMap<String, Integer>() {{
         put("A", 10);

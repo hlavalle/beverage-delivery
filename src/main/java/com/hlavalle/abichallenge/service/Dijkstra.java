@@ -1,4 +1,4 @@
-package com.hlavalle.abichallenge.controller;
+package com.hlavalle.abichallenge.service;
 
 import com.hlavalle.abichallenge.model.Graph;
 import com.hlavalle.abichallenge.model.Node;
@@ -10,13 +10,15 @@ import java.util.Set;
 
 public class Dijkstra {
 
-    public static Graph calculateShortestPathFromSource(Graph graph, Node source) {
+    public static int calculateShortestDistance(Graph graph, String start, String destination) {
 
-        source.setDistance(0);
+        Node startNode = graph.getNodesMap().get(start);
+
+        startNode.setDistance(0);
 
         Set<Node> settledNodes = new HashSet<>();
         Set<Node> unsettledNodes = new HashSet<>();
-        unsettledNodes.add(source);
+        unsettledNodes.add(startNode);
 
         while (unsettledNodes.size() != 0) {
             Node currentNode = getLowestDistanceNode(unsettledNodes);
@@ -32,7 +34,7 @@ public class Dijkstra {
             }
             settledNodes.add(currentNode);
         }
-        return graph;
+        return graph.getNodesMap().get(destination).getDistance();
     }
 
     private static void CalculateMinimumDistance(Node evaluationNode, Integer edgeWeigh, Node sourceNode) {

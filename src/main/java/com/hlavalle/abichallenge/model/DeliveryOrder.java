@@ -1,9 +1,6 @@
 package com.hlavalle.abichallenge.model;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -11,7 +8,10 @@ import java.io.Serializable;
 @Entity
 @Table(name = "delivery_order")
 @NoArgsConstructor
+@RequiredArgsConstructor
+@AllArgsConstructor
 @ToString
+@EqualsAndHashCode
 public class DeliveryOrder implements Serializable {
 
     @Id
@@ -20,12 +20,15 @@ public class DeliveryOrder implements Serializable {
     private Long id;
 
     @Getter @Setter
+    @NonNull
     private String store;
 
     @Getter @Setter
+    @NonNull
     private String location;
 
     @Getter @Setter
+    @NonNull
     private int quantity;
 
 }

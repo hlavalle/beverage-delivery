@@ -1,9 +1,6 @@
 package com.hlavalle.abichallenge.model;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -11,7 +8,9 @@ import java.io.Serializable;
 @Entity
 @Table(name = "vehicle")
 @NoArgsConstructor
+@AllArgsConstructor
 @ToString
+@EqualsAndHashCode
 public class Vehicle implements Serializable {
 
     @Id

@@ -1,5 +1,6 @@
 package com.hlavalle.abichallenge.model;
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 

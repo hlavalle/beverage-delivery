@@ -1,6 +1,5 @@
 package com.hlavalle.abichallenge.service;
 
-import com.hlavalle.abichallenge.controller.Dijkstra;
 import com.hlavalle.abichallenge.dto.RankingDto;
 import com.hlavalle.abichallenge.exception.OrderNotFoundException;
 import com.hlavalle.abichallenge.model.DeliveryOrder;
@@ -9,23 +8,25 @@ import com.hlavalle.abichallenge.model.Node;
 import com.hlavalle.abichallenge.model.Vehicle;
 import com.hlavalle.abichallenge.repository.DeliveryOrderRepository;
 import com.hlavalle.abichallenge.repository.VehicleRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Comparator;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
+
+import static java.lang.Math.abs;
 
 @Service
 public class OrderServiceImpl implements OrderService {
 
-    @Autowired
-    DeliveryOrderRepository deliveryOrderRepository;
+    private DeliveryOrderRepository deliveryOrderRepository;
 
-    @Autowired
-    VehicleRepository vehicleRepository;
+    private VehicleRepository vehicleRepository;
+
+    public OrderServiceImpl(DeliveryOrderRepository deliveryOrderRepository, VehicleRepository vehicleRepository) {
+        this.deliveryOrderRepository = deliveryOrderRepository;
+        this.vehicleRepository = vehicleRepository;
+    }
 
     public DeliveryOrder registerDeliveryOrder(DeliveryOrder deliveryOrder) {
         return deliveryOrderRepository.save(deliveryOrder);
@@ -56,34 +57,32 @@ public class OrderServiceImpl implements OrderService {
         int nc = vehicle.getCapacity();
         int nb = deliveryOrder.getQuantity();
 
-        int sdbl = getShorterDistanceBetweenLocations(vehicle.getLocation(), deliveryOrder.getLocation());
+        int shortestDistance = Dijkstra.calculateShortestDistance(
+                initGraph(),
+                vehicle.getLocation(),
+                deliveryOrder.getLocation());
+
         int d = 0;
 
-        if (sdbl <= 5) {
+        if (shortestDistance <= 5) {
             d = 100;
         }
-        else if (sdbl > 5 && sdbl <= 10) {
+        else if (shortestDistance > 5 && shortestDistance <= 10) {
             d = 75;
         }
-        else if (sdbl > 10 && sdbl <= 15) {
+        else if (shortestDistance > 10 && shortestDistance <= 15) {
             d = 50;
         }
-        else if (sdbl > 15 && sdbl <= 20) {
+        else if (shortestDistance > 15 && shortestDistance <= 20) {
             d = 25;
         }
 
-        System.out.println(vehicle.toString());
-        System.out.println(deliveryOrder.toString());
-        System.out.println("sdbl = "+sdbl);
-        System.out.println("d = "+d);
-
-        n = 100 - 25 * ((nb - nc) / 10);
+        n = 100 - 25 * (abs((nb - nc) / 10));
         score = (n + d) / 2;
         return score;
     }
 
-    private int getShorterDistanceBetweenLocations(String n1, String n2) {
-
+    private Graph initGraph() {
         Node nodeA = new Node("A");
         Node nodeB = new Node("B");
         Node nodeC = new Node("C");
@@ -117,12 +116,7 @@ public class OrderServiceImpl implements OrderService {
         graph.addNode(nodeE);
         graph.addNode(nodeF);
 
-        Node startNode = graph.getNodesMap().get(n1);
-
-        graph = Dijkstra.calculateShortestPathFromSource(graph, startNode);
-
-        return graph.getNodesMap().get(n2).getDistance();
+        return graph;
     }
-
 
 }
