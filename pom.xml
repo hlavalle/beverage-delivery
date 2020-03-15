@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.hlavalle</groupId>
-	<artifactId>abichallenge</artifactId>
+	<artifactId>beverage-delivery</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>abichallenge</name>
-	<description>Demo project for Spring Boot</description>
+	<name>beverage-delivery</name>
+	<description>API for beverage delivery logistics</description>
 
 	<properties>
 		<java.version>1.8</java.version>
@@ -91,10 +91,10 @@
 						</goals>
 						<configuration>
 							<excludes>
-								<exclude>com/hlavalle/abichallenge/exception/*.class</exclude>
-								<exclude>com/hlavalle/abichallenge/config/*.class</exclude>
-								<exclude>com/hlavalle/abichallenge/controller/*.class</exclude>
-								<exclude>com/hlavalle/abichallenge/AbichallengeApplication.class</exclude>
+								<exclude>com/hlavalle/beveragedelivery/exception/*.class</exclude>
+								<exclude>com/hlavalle/beveragedelivery/config/*.class</exclude>
+								<exclude>com/hlavalle/beveragedelivery/controller/*.class</exclude>
+								<exclude>com/hlavalle/beveragedelivery/BeverageDeliveryApplication.class</exclude>
 							</excludes>
 							<rules>
 								<rule>
