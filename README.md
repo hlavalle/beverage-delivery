@@ -36,7 +36,7 @@ It provides 3 operations:
 3. Query on ranking of vehicles to attend a delivery order
 
 Details of the requests provided on a Swagger UI (available when application is running)
-* http://localhost:9000/swagger-ui.html
+* http://localhost:8080/swagger-ui.html
 
 All data is stored in memory. Delivery order and vehicle data are stored on a H2 database.
 Java sets and maps were used to support the calculus of the shortest distance between an vehicle and a store, using Dijkstra algorithm.
@@ -60,8 +60,6 @@ References:
 
 ![](./graph.png)
 
-* Details of how to calculate score for each vehicle provided by https://dev.azure.com/ErickCarvalho0358/_git/abi-challenge?path=%2Ftech-dev-challenge.md&version=GBmaster&_a=preview
-
 ## How to Execute ##
 
 You have 3 options to run the app:
@@ -79,7 +77,7 @@ mvn install
 To run the Spring Boot app from a command line in a Terminal window you can you the java -jar command. This is provided your Spring Boot app was packaged as an executable jar file.
 
 ```
-java -jar java -jar target/beverage-delivery-0.0.1-SNAPSHOT.jar
+java -jar target/beverage-delivery-0.0.1-SNAPSHOT.jar
 ```
 
 - Option 2: maven
