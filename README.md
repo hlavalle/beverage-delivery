@@ -21,19 +21,12 @@
     </a>
 </p>
 
-Create a brief documentation about your solution, with an explanation of the architecture/design and assumed assumptions. We also expect a step by step on how to execute your solution. The simpler the better
-
-Swagger : http://localhost:8080/swagger-ui.html
-
-sudo docker run -p 9000:8080 -t beveragedelivery-docker
-
 ## Table of Contents ##
-1. [Architecture and design](#architecture-and-design)
-2. [Assumed assumptions](#assumed-assumptions)
+1. [Architecture and Design](#architecture-and-design)
+2. [Assumed Assumptions](#assumed-assumptions)
 3. [How to Execute](#how-to-execute)
 
-
-## Architecture and design ##
+## Architecture and Design ##
 
 The API was developed in Java and uses the Spring Boot framework.
 
@@ -52,7 +45,7 @@ References:
 * https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm
 * https://www.baeldung.com/java-dijkstra
 
-## Assumed assumptions ##
+## Assumed Assumptions ##
 
 * Data is not persisted, so is available only during application execution.
 
@@ -69,7 +62,7 @@ References:
 
 * Details of how to calculate score for each vehicle provided by https://dev.azure.com/ErickCarvalho0358/_git/abi-challenge?path=%2Ftech-dev-challenge.md&version=GBmaster&_a=preview
 
-## How to execute ##
+## How to Execute ##
 
 You have 3 options to run the app:
 1. java
