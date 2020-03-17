@@ -20,11 +20,11 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8080/v1/order",
+					"raw": "localhost:9000/v1/order",
 					"host": [
 						"localhost"
 					],
-					"port": "8080",
+					"port": "9000",
 					"path": [
 						"v1",
 						"order"
@@ -48,11 +48,11 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8080/v1/vehicle",
+					"raw": "localhost:9000/v1/vehicle",
 					"host": [
 						"localhost"
 					],
-					"port": "8080",
+					"port": "9000",
 					"path": [
 						"v1",
 						"vehicle"
@@ -67,11 +67,11 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/v1/order/1/vehicle/ranking",
+					"raw": "localhost:9000/v1/order/1/vehicle/ranking",
 					"host": [
 						"localhost"
 					],
-					"port": "8080",
+					"port": "9000",
 					"path": [
 						"v1",
 						"order",

@@ -36,7 +36,7 @@ It provides 3 operations:
 3. Query on ranking of vehicles to attend a delivery order
 
 Details of the requests provided on a Swagger UI (available when application is running)
-* http://localhost:8080/swagger-ui.html
+* http://localhost:9000/swagger-ui.html
 
 All data is stored in memory. Delivery order and vehicle data are stored on a H2 database.
 Java sets and maps were used to support the calculus of the shortest distance between an vehicle and a store, using Dijkstra algorithm.
@@ -62,34 +62,6 @@ References:
 
 ## How to Execute ##
 
-You have 3 options to run the app:
-1. java
-2. maven
-2. docker
-
-Whichever option choose you need to first build the application executable jar. To build and package a Spring Boot app into a single executable Jar file with a Maven, use the below command. You will need to run it from the project folder which contains the pom.xml file.
-```
-mvn install
-```
-
-- Option 1: java
-
-To run the Spring Boot app from a command line in a Terminal window you can you the java -jar command. This is provided your Spring Boot app was packaged as an executable jar file.
-
-```
-java -jar target/beverage-delivery-0.0.1-SNAPSHOT.jar
-```
-
-- Option 2: maven
-
-You can also use Maven plugin to run the app. Use the below example to run your Spring Boot app with Maven plugin :
-
-```
-mvn spring-boot:run
-```
-
-- Option 3: docker
-
 Command to build the container :
 
 ```
@@ -99,10 +71,10 @@ docker build -t beveragedelivery-docker .
 Command to run the container :
 
 ```
-docker run -p 8080:8080 beveragedelivery-docker
+docker run -p 9000:8080 beveragedelivery-docker
 ```
 
-The API can be accessed over http://localhost:8080
+The API can be accessed over http://localhost:9000
 
 A Postman collection is also available [here](./beverage-delivery.postman_collection.json)
                         
